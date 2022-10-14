@@ -1,4 +1,8 @@
-import { createGlobalStyle } from 'styled-components';
+import styles, { createGlobalStyle } from 'styled-components';
+
+export const AppHeader = styles.header`
+
+`;
 
 const GlobalStyle = createGlobalStyle`
   *,
