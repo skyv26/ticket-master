@@ -1,7 +1,14 @@
 import styles, { createGlobalStyle } from 'styled-components';
 
-export const AppHeader = styles.header`
+export const Wrapper = styles.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
 
+export const Logo = styles.a`
+  font-size: 1.75rem;
+  color: white;
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -21,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     width: 100%;
     min-height: 100%;
+    background-color: #744499c2;
   }
 `;
 

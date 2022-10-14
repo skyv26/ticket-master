@@ -1,11 +1,24 @@
 import React from 'react';
-import { FaAngleLeft } from 'react-icons/fa';
-import { AppHeader } from '../../globalStyles.styled';
+import { Logo } from '../../globalStyles.styled';
+import {
+  AppHeader,
+  MenuBurger,
+  Microphone,
+  BackButton,
+  HeaderWrapper,
+} from './Header.styled';
 
 const Header = () => (
   <>
     <AppHeader>
-      <FaAngleLeft />
+      <HeaderWrapper>
+        <BackButton />
+        <Logo>MyTicketO</Logo>
+      </HeaderWrapper>
+      <HeaderWrapper>
+        <Microphone />
+        <MenuBurger />
+      </HeaderWrapper>
     </AppHeader>
   </>
 );
