@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CategoryPage = props => {
+const CategoryPage = (props) => {
   const { img } = props;
   return (
     <div>
