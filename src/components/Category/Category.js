@@ -1,19 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import {
   CategoryWrapper,
   CategoryImageWrapper,
+  CircularButtonWrapper,
   CirclularButton,
   CategoryLabel,
 } from './Category.styled';
 import { Image } from '../../globalStyles.styled';
 
 const Category = (props) => {
+  const navigate = useNavigate();
+  const coursesPage = (type) => {
+    navigate({
+      pathname: '/category',
+      search: `${type}`,
+    });
+  };
   const { img, label } = props;
   return (
     <CategoryWrapper>
       <CategoryImageWrapper>
-        <CirclularButton />
+        <CircularButtonWrapper onClick={() => coursesPage(label.toLowerCase())}>
+          <CirclularButton />
+        </CircularButtonWrapper>
         <Image src={img} />
         <CategoryLabel>{label}</CategoryLabel>
       </CategoryImageWrapper>
