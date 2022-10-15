@@ -23,7 +23,7 @@ const Details = () => {
       </ImageWrapper>
       <ContextHeading>Event Name</ContextHeading>
       <ContextPara>{eventName}</ContextPara>
-      <ContextHeading>Event Name</ContextHeading>
+      <ContextHeading>Venue Name</ContextHeading>
       <ContextPara>{stadiumName}</ContextPara>
       <ContextHeading>Seatmap</ContextHeading>
       <Image src={Seatmap} alt="" />
