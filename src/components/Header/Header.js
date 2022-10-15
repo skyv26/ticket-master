@@ -18,6 +18,11 @@ const Header = () => {
     if (pathname.includes('category')) {
       navigate('/');
     }
+    if (pathname.includes('details')) {
+      navigate({
+        pathname: '/',
+      });
+    }
   };
 
   return (

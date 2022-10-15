@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import { ContextHeading, Image } from '../../globalStyles.styled';
 import {
@@ -17,7 +17,11 @@ import {
 const CategoryPage = () => {
   const tickets = useSelector((state) => state.tickets);
   const { search } = useLocation();
+  const navigate = useNavigate();
   const type = search.split('?')[1];
+  const coursesPage = (id) => {
+    navigate('/details', { state: { id }, search });
+  };
   if (Object.keys(tickets).length === 0) {
     return <></>;
   }
@@ -55,7 +59,7 @@ const CategoryPage = () => {
         {
           data.map((each) => (
             <Box key={each.id}>
-              <CircularButton />
+              <CircularButton onClick={() => coursesPage(each.id)} />
               <Image
                 src={each.images[2].url}
                 alt={each.name}
