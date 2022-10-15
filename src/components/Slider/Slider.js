@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Image, ImageOverlay } from '../../globalStyles.styled';
 import {
   SliderWrapper,
-  Image,
   SliderListContainer,
   SliderList,
   ImageOverlayContainer,
-  ImageOverlay,
 } from './Slider.styled';
 
 const imgArray = ['https://www.gstatic.com/webp/gallery/1.webp', 'https://www.gstatic.com/webp/gallery/2.webp', 'https://www.gstatic.com/webp/gallery/4.webp'];
