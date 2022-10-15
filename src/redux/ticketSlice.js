@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, nanoid } from '@reduxjs/toolkit';
 
 const TicketAPI = 'https://app.ticketmaster.com/discovery/v2/events.json?&apikey=VwRqkplVGaYm4ZuUaAV3sa4LSGGl5eYa&size=25';
 const TicketType = '/get/ticket';
@@ -49,6 +49,7 @@ const TicketSlice = createSlice({
           + payload.art.page.totalPages
           + payload.misc.page.totalPages
           + payload.sport.page.totalPages,
+          categories: 4,
         },
         events: [
           ...payload.music._embedded.events,
@@ -58,8 +59,30 @@ const TicketSlice = createSlice({
         ],
       };
       const corousel = COROUSEL_ARRAY.map((each) => newState.events[each]);
+      const categoryImages = [
+        {
+          id: nanoid(),
+          category: 'Sports',
+          img: 'https://www.durham.ac.uk/media/durham-university/departments-/sport-and-exercise-sciences/sport/86125-2000x1333.jpg',
+        },
+        {
+          id: nanoid(),
+          category: 'Music',
+          img: 'https://static.india.com/wp-content/uploads/2022/08/Collage-Maker-19-Aug-2022-03.17-PM-1.jpg',
+        },
+        {
+          id: nanoid(),
+          category: 'Miscellenous',
+          img: 'https://russianvagabond.com/wp-content/uploads/2022/05/Webp.net-resizeimage-6-1024x681.jpg',
+        },
+        {
+          id: nanoid(),
+          category: 'Art',
+          img: 'https://d16kd6gzalkogb.cloudfront.net/__sized__/magazine_images/Banksy-Travolta-and-Samuel-L-Jackson-thumbnail_webp-9999x9999.webp',
+        },
+      ];
       return {
-        newState, corousel,
+        ...newState, corousel, categoryImages,
       };
     },
   },
