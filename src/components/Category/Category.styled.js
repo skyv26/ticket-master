@@ -20,6 +20,13 @@ export const CategoryImageWrapper = styles(Wrapper)`
 export const Overlay = styles(ImageOverlay)`
 `;
 
+export const CircularButtonWrapper = styles.button`
+  background-color: none;
+  border: none;
+  width: max-content;
+  cursor: pointer;
+`;
+
 export const CirclularButton = styles(FaArrowCircleRight)`
   position: absolute;
   right: 2%;
