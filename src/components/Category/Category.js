@@ -9,13 +9,13 @@ import {
 import { Image } from '../../globalStyles.styled';
 
 const Category = (props) => {
-  const { img } = props;
+  const { img, label } = props;
   return (
     <CategoryWrapper>
       <CategoryImageWrapper>
         <CirclularButton />
         <Image src={img} />
-        <CategoryLabel>Sports</CategoryLabel>
+        <CategoryLabel>{label}</CategoryLabel>
       </CategoryImageWrapper>
     </CategoryWrapper>
   );
@@ -23,10 +23,12 @@ const Category = (props) => {
 
 Category.propTypes = {
   img: PropTypes.string,
+  label: PropTypes.string,
 };
 
 Category.defaultProps = {
   img: 'https://www.gstatic.com/webp/gallery/1.webp',
+  label: 'Sports',
 };
 
 export default Category;
