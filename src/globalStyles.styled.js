@@ -11,6 +11,12 @@ export const Logo = styles.a`
   color: white;
 `;
 
+export const UnorderedList = styles.ul`
+`;
+
+export const List = styles.li`
+`;
+
 const GlobalStyle = createGlobalStyle`
   *,
   *::after,
