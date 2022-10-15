@@ -57,6 +57,18 @@ const TicketSlice = createSlice({
           ...payload.misc._embedded.events,
           ...payload.sport._embedded.events,
         ],
+        miscellenous: [
+          ...payload.misc._embedded.events,
+        ],
+        sports: [
+          ...payload.sport._embedded.events,
+        ],
+        music: [
+          ...payload.music._embedded.events,
+        ],
+        art: [
+          ...payload.art._embedded.events,
+        ],
       };
       const corousel = COROUSEL_ARRAY.map((each) => newState.events[each]);
       const categoryImages = [
