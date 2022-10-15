@@ -1,5 +1,6 @@
 import React from 'react';
-import { useParams } from 'react-router';
+import { useLocation } from 'react-router';
+import { useSelector } from 'react-redux';
 import { ContextHeading, Image } from '../../globalStyles.styled';
 import {
   StatsWrapper,
@@ -14,39 +15,57 @@ import {
 } from './CategoryPage.styled';
 
 const CategoryPage = () => {
-  const { type } = useParams();
-  console.log(type);
+  const tickets = useSelector((state) => state.tickets);
+  const { search } = useLocation();
+  const type = search.split('?')[1];
+  if (Object.keys(tickets).length === 0) {
+    return <></>;
+  }
+  const data = tickets[type];
+  const onSaleStat = data.filter((each) => each.dates.status.code === 'onsale');
+  const offSaleStat = data.filter((each) => each.dates.status.code === 'offsale');
+  const rescheduleStat = data.filter((each) => each.dates.status.code === 'rescheduled');
+
   return (
     <>
       <StatsWrapper>
         <StatsPara>
           Total Results
-          <StatsSpan>100</StatsSpan>
+          <StatsSpan>{data.length}</StatsSpan>
         </StatsPara>
         <ChildWrapper>
           <ChildWrapperTwo>
             <StatsPara className="smallP">
-              <StatsSpan className="smallS">96</StatsSpan>
+              <StatsSpan className="smallS">{onSaleStat.length}</StatsSpan>
               onsale
             </StatsPara>
             <StatsPara className="smallP">
-              <StatsSpan className="smallS">3</StatsSpan>
+              <StatsSpan className="smallS">{offSaleStat.length}</StatsSpan>
               offsale
             </StatsPara>
           </ChildWrapperTwo>
           <StatsPara className="smallP">
-            <StatsSpan className="smallS">1</StatsSpan>
+            <StatsSpan className="smallS">{rescheduleStat.length}</StatsSpan>
             rescheduled
           </StatsPara>
         </ChildWrapper>
       </StatsWrapper>
       <ContextHeading>{`${type.toUpperCase()}`}</ContextHeading>
       <GridWrapper>
-        <Box>
-          <CircularButton />
-          <Image src="https://d16kd6gzalkogb.cloudfront.net/__sized__/magazine_images/Banksy-Travolta-and-Samuel-L-Jackson-thumbnail_webp-9999x9999.webp" alt="" />
-          <EventName>Approve</EventName>
-        </Box>
+        {
+          data.map((each) => (
+            <Box key={each.id}>
+              <CircularButton />
+              <Image
+                src={each.images[2].url}
+                alt={each.name}
+              />
+              <EventName>
+                {each.name}
+              </EventName>
+            </Box>
+          ))
+        }
       </GridWrapper>
     </>
   );
