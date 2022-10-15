@@ -11,6 +11,40 @@ export const Logo = styles.a`
   color: white;
 `;
 
+export const UnorderedList = styles.ul`
+`;
+
+export const List = styles.li`
+`;
+
+export const Image = styles.img`
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: top;
+`;
+
+export const ImageOverlay = styles(Wrapper)`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+`;
+
+export const ContextHeading = styles.p`
+  color: white;
+  background-color: #744499;
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem 1rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+  font-family: 'Encode Sans', sans-serif;
+  font-weight: 600;
+`;
+
 const GlobalStyle = createGlobalStyle`
   *,
   *::after,
@@ -28,7 +62,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     width: 100%;
     min-height: 100%;
-    background-color: #744499c2;
+    background-color: rgba(116, 68, 153, 0.85);
   }
 `;
 
