@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
+import { FaSearch } from 'react-icons/fa';
 import Slider from '../../components/Slider/Slider';
 import { ContextHeading } from '../../globalStyles.styled';
 import {
@@ -8,11 +9,15 @@ import {
   OverviewPara,
   OverviewSpan,
   CategoriesWrapper,
+  Form,
+  TextField,
+  FormButton,
 } from './Home.styled';
 import Category from '../../components/Category/Category';
 
 const Home = () => {
   const tickets = useSelector((state) => state.tickets);
+  const textRef = useRef();
   if (Object.keys(tickets).length === 0) {
     return <></>;
   }
@@ -35,6 +40,10 @@ const Home = () => {
     },
   ];
 
+  const searchHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <Slider />
@@ -51,6 +60,12 @@ const Home = () => {
           ))
         }
       </OverviewWrapper>
+      <Form onSubmit={(e) => searchHandler(e)}>
+        <TextField ref={textRef} type="text" name="" id="" />
+        <FormButton type="submit">
+          <FaSearch />
+        </FormButton>
+      </Form>
       <ContextHeading>Ticket Categories</ContextHeading>
       <CategoriesWrapper>
         {categoryImages.map((each) => (

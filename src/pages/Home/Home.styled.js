@@ -29,3 +29,17 @@ export const CategoriesWrapper = styles(Wrapper)`
   grid-template-rows: repeat(2, 1fr);
   padding: 1.6rem 1rem;
 `;
+
+export const Form = styles.form`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 95% 5%;
+`;
+
+export const TextField = styles.input`
+  height: 4rem;
+  font-size: 2rem;
+`;
+
+export const FormButton = styles.button`
+`;
