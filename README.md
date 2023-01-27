@@ -9,7 +9,7 @@
 - Technologies used: **CSS3, JSX**
 - Testing Tool: **Jest**, **React-testing Library**
 
-## Live Demo (if available)
+## Live Demo
 
 [click here](https://myticketo.netlify.app)
 
